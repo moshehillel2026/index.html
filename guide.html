@@ -1,253 +1,264 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מדריך תגיות מטא המלא - Suno AI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0a0a1a;
-            --surface: #12122b;
-            --surface2: #1a1a3a;
-            --accent: #7c3aed;
-            --cyan: #22d3ee;
-            --text: #eeeef8;
-            --muted: #94a3b8;
-            --border: #2d2d5a;
-            --radius: 12px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מדריך מלא לתגיות מטא של Suno AI | 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --surface2: #1a1a26;
+    --border: #2a2a40;
+    --accent: #7c3aed;
+    --accent2: #06b6d4;
+    --accent3: #f59e0b;
+    --accent4: #ec4899;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --code-bg: #0d1117;
+    --glow: rgba(124,58,237,0.15);
+  }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Heebo', sans-serif;
-            line-height: 1.6;
-            padding: 20px;
-        }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .container { max-width: 1000px; margin: 0 auto; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Heebo', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-bottom: 80px;
+  }
 
-        header {
-            text-align: center;
-            padding: 40px 0;
-            background: linear-gradient(135deg, #12122b, #0a0a1a);
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-            margin-bottom: 30px;
-        }
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
 
-        h1 { font-size: 2.2rem; color: var(--cyan); margin-bottom: 10px; }
-        .subtitle { color: var(--muted); font-size: 1.1rem; }
+  /* Search Header */
+  .search-header {
+    background: rgba(10, 10, 15, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
 
-        /* חיפוש */
-        .search-container {
-            position: sticky;
-            top: 20px;
-            z-index: 100;
-            margin-bottom: 30px;
-        }
+  .search-wrapper {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+  }
 
-        #mainSearch {
-            width: 100%;
-            padding: 18px;
-            border-radius: var(--radius);
-            background: var(--surface2);
-            border: 2px solid var(--accent);
-            color: #fff;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            outline: none;
-        }
+  #mainSearch {
+    width: 100%;
+    background: var(--surface2);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    color: #fff;
+    font-size: 1.15rem;
+    outline: none;
+    transition: all 0.3s;
+    text-align: right;
+  }
 
-        /* תוכן עניינים */
-        .toc {
-            background: var(--surface);
-            padding: 20px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-            margin-bottom: 40px;
-        }
+  #mainSearch:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--glow);
+  }
 
-        .toc h2 { font-size: 1.3rem; margin-bottom: 15px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
-        .toc-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-        }
+  /* Sections & Content */
+  .section-block {
+    margin-top: 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px;
+  }
 
-        .toc a {
-            color: var(--text);
-            text-decoration: none;
-            display: block;
-            padding: 8px 12px;
-            background: var(--surface2);
-            border-radius: 8px;
-            transition: 0.2s;
-            font-weight: 500;
-        }
+  .section-title {
+    color: var(--accent2);
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+  }
 
-        .toc a:hover { background: var(--accent); transform: scale(1.05); }
+  .tag-entry {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: 0.2s;
+  }
 
-        /* כרטיסיות מידע */
-        .section-header {
-            margin: 50px 0 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+  .tag-entry:hover {
+    border-color: var(--accent);
+    transform: translateX(-4px);
+  }
 
-        .tag-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 20px;
-            margin-bottom: 15px;
-            transition: 0.3s;
-        }
+  .tag-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
 
-        .tag-card:hover { border-color: var(--cyan); background: var(--surface2); }
+  .tag-label {
+    font-family: 'Space Mono', monospace;
+    color: var(--accent4);
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
 
-        .tag-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
+  .tag-meaning {
+    color: var(--accent3);
+    font-weight: 700;
+  }
 
-        .tag-name {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--cyan);
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
+  .tag-description {
+    color: var(--text);
+    margin-bottom: 12px;
+  }
 
-        .tag-translation {
-            background: var(--accent);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
+  .tag-code {
+    background: #000;
+    color: var(--accent2);
+    padding: 10px;
+    border-radius: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    border-right: 3px solid var(--accent2);
+  }
 
-        .tag-description { color: var(--text); font-size: 1rem; margin-bottom: 10px; }
-        .tag-example {
-            background: #000;
-            padding: 10px;
-            border-radius: 8px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            color: var(--muted);
-            border-left: 3px solid var(--cyan);
-        }
+  /* TOC */
+  .toc-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 30px 0;
+  }
 
-        @media (max-width: 768px) {
-            .toc-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 1.8rem; }
-        }
-    </style>
+  .toc-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+
+  .toc-link {
+    background: var(--surface2);
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text);
+    text-align: center;
+    font-weight: 500;
+    border: 1px solid transparent;
+  }
+
+  .toc-link:hover {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+
+  .search-hidden { display: none !important; }
+
+  @media (max-width: 600px) {
+    .section-block { padding: 15px; }
+    .tag-head { flex-direction: column; }
+    .toc-links { grid-template-columns: 1fr 1fr; }
+  }
+</style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>מדריך תגיות מטא המלא</h1>
-        <p class="subtitle">הגדרות מילות מפתח המנחות את Suno AI להפקה מושלמת</p>
-    </header>
-
-    <div class="search-container">
-        <input type="text" id="mainSearch" placeholder="חפש תגית, סגנון או כלי נגינה (למשל: תופים, דרמה, פופ)...">
+<div class="search-header">
+  <div class="container">
+    <div class="search-wrapper">
+      <input type="text" id="mainSearch" placeholder="חפש תגית (למשל: תופים, פתיח, Bass)...">
     </div>
+  </div>
+</div>
 
-    <nav class="toc">
-        <h2>תוכן עניינים</h2>
-        <div class="toc-grid">
-            <a href="#structure">🏗️ מבנה השיר</a>
-            <a href="#vocal">🎤 שירה וקולות</a>
-            <a href="#instruments">🎸 כלי נגינה</a>
-            <a href="#genres">🎹 ז'אנרים וסגנונות</a>
-            <a href="#moods">✨ אווירה ורגש</a>
-            <a href="#production">🎚️ הפקה וסאונד</a>
-        </div>
-    </nav>
-
-    <section id="structure">
-        <div class="section-header"><h2>🏗️ מבנה השיר (Meta-Tags)</h2></div>
-        <div class="tag-card">
-            <div class="tag-header">
-                <span class="tag-name">[Intro]</span>
-                <span class="tag-translation">פתיח</span>
-            </div>
-            <p class="tag-description">מגדיר את תחילת השיר. בדרך כלל אינסטרומנטלי או עם קולות רקע.</p>
-            <div class="tag-example">[Intro: Slow acoustic guitar building up]</div>
-        </div>
-        <div class="tag-card">
-            <div class="tag-header">
-                <span class="tag-name">[Verse]</span>
-                <span class="tag-translation">בית</span>
-            </div>
-            <p class="tag-description">החלק הסיפורי של השיר. בדרך כלל קצבי פחות מהפזמון.</p>
-            <div class="tag-example">[Verse 1: Narrative style]</div>
-        </div>
-        <div class="tag-card">
-            <div class="tag-header">
-                <span class="tag-name">[Chorus]</span>
-                <span class="tag-translation">פזמון</span>
-            </div>
-            <p class="tag-description">שיא השיר. אמור להיות קליט, עוצמתי וחוזר על עצמו.</p>
-            <div class="tag-example">[Chorus: High energy, catchy melody]</div>
-        </div>
-        <div class="tag-card">
-            <div class="tag-header">
-                <span class="tag-name">[Bridge]</span>
-                <span class="tag-translation">גשר</span>
-            </div>
-            <p class="tag-description">חלק המקשר בין פזמונים או מוביל לסיום, בדרך כלל בשינוי מלודי.</p>
-            <div class="tag-example">[Bridge: Emotional shift, stripped back]</div>
-        </div>
-    </section>
-
-    <section id="vocal">
-        <div class="section-header"><h2>🎤 שירה וקולות</h2></div>
-        <div class="tag-card">
-            <div class="tag-header">
-                <span class="tag-name">Melismatic</span>
-                <span class="tag-translation">סלסולים</span>
-            </div>
-            <p class="tag-description">שירה עם הרבה תנודות וסלסולים על הברה אחת (מעולה למזרחית).</p>
-        </div>
-        <div class="tag-card">
-            <div class="tag-header">
-                <span class="tag-name">Husky Vocals</span>
-                <span class="tag-translation">קול צרוד/מחוספס</span>
-            </div>
-            <p class="tag-description">קול נמוך, סקסי או מחוספס שמתאים לבלוז או רוק.</p>
-        </div>
-    </section>
-
+<div class="container" id="contentArea">
+  <div class="toc-box" id="tocBox">
+    <h3 style="margin-bottom:15px; color:var(--accent);">ניווט מהיר</h3>
+    <div class="toc-links">
+      <a href="#structure" class="toc-link">🏗️ מבנה</a>
+      <a href="#vocals" class="toc-link">🎤 שירה</a>
+      <a href="#instruments" class="toc-link">🎸 כלים</a>
+      <a href="#mood" class="toc-link">✨ אווירה</a>
     </div>
+  </div>
+
+  <section class="section-block" id="structure">
+    <h2 class="section-title">🏗️ מבנה השיר (Structure)</h2>
+    <div class="tag-entry">
+      <div class="tag-head"><span class="tag-label">[Intro]</span><span class="tag-meaning">פתיח</span></div>
+      <p class="tag-description">תחילת השיר. משמש להכנת האווירה.</p>
+      <div class="tag-code">[Intro: Soft piano building up]</div>
+    </div>
+    <div class="tag-entry">
+      <div class="tag-head"><span class="tag-label">[Verse]</span><span class="tag-meaning">בית</span></div>
+      <p class="tag-description">החלק המילולי והסיפורי של השיר.</p>
+      <div class="tag-code">[Verse 1: Low energy, narrative style]</div>
+    </div>
+    <div class="tag-entry">
+      <div class="tag-head"><span class="tag-label">[Chorus]</span><span class="tag-meaning">פזמון</span></div>
+      <p class="tag-description">החלק המרכזי והקליט בשיר.</p>
+      <div class="tag-code">[Chorus: High energy, anthemic]</div>
+    </div>
+  </section>
+
+  <section class="section-block" id="vocals">
+    <h2 class="section-title">🎤 שירה וקולות (Vocals)</h2>
+    <div class="tag-entry">
+      <div class="tag-head"><span class="tag-label">Melismatic</span><span class="tag-meaning">סלסולים</span></div>
+      <p class="tag-description">שירה עם הרבה קישוטים על הברה אחת.</p>
+      <div class="tag-code">Style: Melismatic vocal, soul</div>
+    </div>
+    <div class="tag-entry">
+      <div class="tag-head"><span class="tag-label">A cappella</span><span class="tag-meaning">ללא ליווי</span></div>
+      <p class="tag-description">שירה ללא כלי נגינה בכלל.</p>
+      <div class="tag-code">[A cappella: Male solo voice]</div>
+    </div>
+  </section>
+
+  </div>
 
 <script>
-    const search = document.getElementById('mainSearch');
-    const cards = document.querySelectorAll('.tag-card');
+  const search = document.getElementById('mainSearch');
+  const entries = document.querySelectorAll('.tag-entry');
+  const blocks = document.querySelectorAll('.section-block');
+  const toc = document.getElementById('tocBox');
 
-    search.addEventListener('input', (e) => {
-        const term = e.target.value.toLowerCase();
-        cards.forEach(card => {
-            const text = card.textContent.toLowerCase();
-            card.style.display = text.includes(term) ? 'block' : 'none';
-        });
+  search.addEventListener('input', (e) => {
+    const term = e.target.value.toLowerCase();
+    
+    if (term.length > 0) toc.style.display = 'none';
+    else toc.style.display = 'block';
 
-        // הסתרת כותרות אם הסקשן ריק
-        document.querySelectorAll('section').forEach(section => {
-            const visible = Array.from(section.querySelectorAll('.tag-card'))
-                                .some(c => c.style.display !== 'none');
-            section.style.display = visible ? 'block' : 'none';
-        });
+    entries.forEach(entry => {
+      const text = entry.innerText.toLowerCase();
+      entry.style.display = text.includes(term) ? 'block' : 'none';
     });
+
+    blocks.forEach(block => {
+      const visible = Array.from(block.querySelectorAll('.tag-entry'))
+                          .some(el => el.style.display !== 'none');
+      block.style.display = visible ? 'block' : 'none';
+    });
+  });
 </script>
 
 </body>
