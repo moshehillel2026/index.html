@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מדריך תגיות מטא המלא - Suno AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a1a;
+            --surface: #12122b;
+            --surface2: #1a1a3a;
+            --accent: #7c3aed;
+            --cyan: #22d3ee;
+            --text: #eeeef8;
+            --muted: #94a3b8;
+            --border: #2d2d5a;
+            --radius: 12px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Heebo', sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #12122b, #0a0a1a);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            margin-bottom: 30px;
+        }
+
+        h1 { font-size: 2.2rem; color: var(--cyan); margin-bottom: 10px; }
+        .subtitle { color: var(--muted); font-size: 1.1rem; }
+
+        /* חיפוש */
+        .search-container {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            margin-bottom: 30px;
+        }
+
+        #mainSearch {
+            width: 100%;
+            padding: 18px;
+            border-radius: var(--radius);
+            background: var(--surface2);
+            border: 2px solid var(--accent);
+            color: #fff;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            outline: none;
+        }
+
+        /* תוכן עניינים */
+        .toc {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+
+        .toc h2 { font-size: 1.3rem; margin-bottom: 15px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .toc a {
+            color: var(--text);
+            text-decoration: none;
+            display: block;
+            padding: 8px 12px;
+            background: var(--surface2);
+            border-radius: 8px;
+            transition: 0.2s;
+            font-weight: 500;
+        }
+
+        .toc a:hover { background: var(--accent); transform: scale(1.05); }
+
+        /* כרטיסיות מידע */
+        .section-header {
+            margin: 50px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tag-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+
+        .tag-card:hover { border-color: var(--cyan); background: var(--surface2); }
+
+        .tag-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .tag-name {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--cyan);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .tag-translation {
+            background: var(--accent);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .tag-description { color: var(--text); font-size: 1rem; margin-bottom: 10px; }
+        .tag-example {
+            background: #000;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--muted);
+            border-left: 3px solid var(--cyan);
+        }
+
+        @media (max-width: 768px) {
+            .toc-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>מדריך תגיות מטא המלא</h1>
+        <p class="subtitle">הגדרות מילות מפתח המנחות את Suno AI להפקה מושלמת</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="mainSearch" placeholder="חפש תגית, סגנון או כלי נגינה (למשל: תופים, דרמה, פופ)...">
+    </div>
+
+    <nav class="toc">
+        <h2>תוכן עניינים</h2>
+        <div class="toc-grid">
+            <a href="#structure">🏗️ מבנה השיר</a>
+            <a href="#vocal">🎤 שירה וקולות</a>
+            <a href="#instruments">🎸 כלי נגינה</a>
+            <a href="#genres">🎹 ז'אנרים וסגנונות</a>
+            <a href="#moods">✨ אווירה ורגש</a>
+            <a href="#production">🎚️ הפקה וסאונד</a>
+        </div>
+    </nav>
+
+    <section id="structure">
+        <div class="section-header"><h2>🏗️ מבנה השיר (Meta-Tags)</h2></div>
+        <div class="tag-card">
+            <div class="tag-header">
+                <span class="tag-name">[Intro]</span>
+                <span class="tag-translation">פתיח</span>
+            </div>
+            <p class="tag-description">מגדיר את תחילת השיר. בדרך כלל אינסטרומנטלי או עם קולות רקע.</p>
+            <div class="tag-example">[Intro: Slow acoustic guitar building up]</div>
+        </div>
+        <div class="tag-card">
+            <div class="tag-header">
+                <span class="tag-name">[Verse]</span>
+                <span class="tag-translation">בית</span>
+            </div>
+            <p class="tag-description">החלק הסיפורי של השיר. בדרך כלל קצבי פחות מהפזמון.</p>
+            <div class="tag-example">[Verse 1: Narrative style]</div>
+        </div>
+        <div class="tag-card">
+            <div class="tag-header">
+                <span class="tag-name">[Chorus]</span>
+                <span class="tag-translation">פזמון</span>
+            </div>
+            <p class="tag-description">שיא השיר. אמור להיות קליט, עוצמתי וחוזר על עצמו.</p>
+            <div class="tag-example">[Chorus: High energy, catchy melody]</div>
+        </div>
+        <div class="tag-card">
+            <div class="tag-header">
+                <span class="tag-name">[Bridge]</span>
+                <span class="tag-translation">גשר</span>
+            </div>
+            <p class="tag-description">חלק המקשר בין פזמונים או מוביל לסיום, בדרך כלל בשינוי מלודי.</p>
+            <div class="tag-example">[Bridge: Emotional shift, stripped back]</div>
+        </div>
+    </section>
+
+    <section id="vocal">
+        <div class="section-header"><h2>🎤 שירה וקולות</h2></div>
+        <div class="tag-card">
+            <div class="tag-header">
+                <span class="tag-name">Melismatic</span>
+                <span class="tag-translation">סלסולים</span>
+            </div>
+            <p class="tag-description">שירה עם הרבה תנודות וסלסולים על הברה אחת (מעולה למזרחית).</p>
+        </div>
+        <div class="tag-card">
+            <div class="tag-header">
+                <span class="tag-name">Husky Vocals</span>
+                <span class="tag-translation">קול צרוד/מחוספס</span>
+            </div>
+            <p class="tag-description">קול נמוך, סקסי או מחוספס שמתאים לבלוז או רוק.</p>
+        </div>
+    </section>
+
+    </div>
+
+<script>
+    const search = document.getElementById('mainSearch');
+    const cards = document.querySelectorAll('.tag-card');
+
+    search.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            card.style.display = text.includes(term) ? 'block' : 'none';
+        });
+
+        // הסתרת כותרות אם הסקשן ריק
+        document.querySelectorAll('section').forEach(section => {
+            const visible = Array.from(section.querySelectorAll('.tag-card'))
+                                .some(c => c.style.display !== 'none');
+            section.style.display = visible ? 'block' : 'none';
+        });
+    });
+</script>
+
+</body>
+</html>
