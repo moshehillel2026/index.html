@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suno Studio V5-MAX · V12 ENGINE · FULL ACCESS</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #06060f; --surface: #0d0d1c; --surface2: #141428; --surface3: #1a1a34;
+        --border: #1e1e3a; --border2: #282850; --accent: #7c3aed; --cyan: #22d3ee;
+        --gold: #fbbf24; --rose: #fb7185; --green: #34d399; --text: #eeeef8;
+        --muted: #9090b8; --dim: #4a4a70; --mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Heebo', sans-serif; height: 100vh; overflow: hidden; display: flex; }
+
+    /* Sidebar - Control Room */
+    .sidebar {
+        width: 350px; background: var(--surface); border-left: 1px solid var(--border);
+        display: flex; flex-direction: column; height: 100vh; flex-shrink: 0;
+    }
+
+    .sidebar-header { padding: 25px; border-bottom: 1px solid var(--border); text-align: center; }
+    .v12-title { font-weight: 900; font-size: 24px; background: linear-gradient(135deg, var(--accent), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    .tag-container { padding: 20px; overflow-y: auto; flex-grow: 1; display: flex; flex-direction: column; gap: 20px; }
+    
+    .tag-group { border-bottom: 1px solid var(--surface2); padding-bottom: 15px; }
+    .group-label { font-size: 11px; font-weight: 800; color: var(--cyan); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1px; display: block; }
+    
+    .tag-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag-chip {
+        padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600;
+        cursor: pointer; transition: 0.2s; border: 1px solid var(--border); background: var(--surface2);
+        color: var(--muted); position: relative;
+    }
+    .tag-chip:hover { border-color: var(--cyan); color: white; background: var(--surface3); transform: translateY(-2px); }
+
+    .c-structure { border-right: 3px solid var(--accent); }
+    .c-vocal { border-right: 3px solid var(--rose); }
+    .c-inst { border-right: 3px solid var(--gold); }
+    .c-style { border-right: 3px solid var(--green); }
+
+    /* Main Area */
+    .main-workspace { flex-grow: 1; display: flex; flex-direction: column; padding: 25px; position: relative; }
+    .editor-box { flex-grow: 1; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; }
+    
+    textarea {
+        width: 100%; height: 100%; background: transparent; border: none; color: white;
+        padding: 30px; font-size: 1.25rem; line-height: 1.7; outline: none; resize: none;
+        font-family: 'Heebo', sans-serif;
+    }
+
+    .action-bar { margin-top: 20px; display: flex; gap: 15px; }
+    .btn {
+        flex: 1; padding: 18px; border-radius: 14px; border: none; font-weight: 900;
+        cursor: pointer; transition: 0.3s; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .btn-copy { background: linear-gradient(to right, var(--accent), var(--cyan)); color: white; box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2); }
+    .btn-nikud { background: var(--surface2); color: var(--gold); border: 1px solid var(--border); }
+    .btn:hover { transform: translateY(-3px); }
+
+    /* Tooltip */
+    #tooltip {
+        position: fixed; background: #000; border: 1px solid var(--cyan); color: var(--cyan);
+        padding: 10px 15px; border-radius: 8px; font-size: 12px; z-index: 1000;
+        pointer-events: none; opacity: 0; transition: 0.1s; box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+    @media (max-width: 1100px) {
+        body { flex-direction: column; overflow-y: auto; }
+        .sidebar { width: 100%; height: auto; order: 2; }
+        .main-workspace { height: 80vh; }
+    }
+</style>
+</head>
+<body>
+
+<div id="tooltip"></div>
+
+<div class="sidebar">
+    <div class="sidebar-header">
+        <div class="v12-title">V12 ENGINE</div>
+        <p style="font-size: 10px; color: var(--dim);">SUNO STUDIO V5-MAX PROFESSIONAL</p>
+        <a href="suno-v12.html" target="_blank" class="tag-chip" style="text-decoration: none; display: inline-block; margin-top: 15px; color: var(--cyan); border-color: var(--cyan); padding: 8px 20px;">📚 למדריך המלא</a>
+    </div>
+
+    <div class="tag-container">
+        <div class="tag-group">
+            <span class="group-label">מבנה השיר</span>
+            <div class="tag-grid">
+                <div class="tag-chip c-structure" onclick="ins('[Intro]')" data-tip="פתיחה מוזיקלית עוצמתית">[Intro]</div>
+                <div class="tag-chip c-structure" onclick="ins('[Verse]')" data-tip="בית - מקום למילים ולסיפור">[Verse]</div>
+                <div class="tag-
