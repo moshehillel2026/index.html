@@ -61,7 +61,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .login-footer::before,.login-footer::after{content:'';flex:1;height:1px;background:var(--border)}
 @media(max-width:500px){.login-card{padding:30px 20px 26px;border-radius:20px}.login-tab{font-size:.72rem;padding:8px 6px}}
 #welcomeBar{display:none;background:linear-gradient(135deg,rgba(34,211,238,.07),rgba(124,58,237,.07));border-bottom:1px solid rgba(34,211,238,.15);padding:10px 32px;position:relative;z-index:10}
-.wb-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.wb-inner{max-width:100%;width:100%;margin:0;display:flex;align-items:center;justify-content:space-between;padding:0 8px}
 .wb-msg{font-size:.82rem;font-weight:600;background:linear-gradient(135deg,var(--cyan),#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:8px}
 .wb-right{display:flex;align-items:center;gap:10px}
 .wb-user{font-family:var(--mono);font-size:.68rem;color:var(--muted);background:var(--surface2);border:1px solid var(--border2);border-radius:20px;padding:2px 10px}
@@ -69,7 +69,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .logout-btn:hover{background:rgba(220,38,38,.2);border-color:#dc2626;color:#fff}
 .header{background:linear-gradient(150deg,#09091a,#110b28 50%,#080f1e);border-bottom:1px solid var(--border2);padding:36px 32px 30px;position:relative;z-index:1;overflow:visible}
 .header::after{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:200px;background:radial-gradient(ellipse,rgba(124,58,237,.18),transparent 70%);pointer-events:none}
-.header-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.header-inner{max-width:100%;width:100%;margin:0;position:relative;z-index:2}
 .header-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:20px}
 .brand{display:flex;align-items:center;gap:14px}
 .brand-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--accent),#06b6d4);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 0 24px rgba(124,58,237,.4)}
@@ -88,7 +88,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .mood-magic-btn{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:8px;border:1px solid transparent;font-size:.78rem;font-family:var(--sans);font-weight:600;cursor:pointer;transition:all .18s;white-space:nowrap;color:#fff}
 .mood-magic-btn:hover{transform:translateY(-2px);filter:brightness(1.15);box-shadow:0 4px 16px rgba(0,0,0,.4)}
 .mm-1{background:linear-gradient(135deg,#7c3aed,#4338ca)}.mm-2{background:linear-gradient(135deg,#059669,#0891b2)}.mm-3{background:linear-gradient(135deg,#1e40af,#6d28d9)}.mm-4{background:linear-gradient(135deg,#db2777,#7c3aed)}.mm-5{background:linear-gradient(135deg,#b45309,#d97706)}.mm-6{background:linear-gradient(135deg,#065f46,#059669)}.mm-7{background:linear-gradient(135deg,#0f766e,#22d3ee)}.mm-8{background:linear-gradient(135deg,#7e22ce,#db2777)}.mm-9{background:linear-gradient(135deg,#ea580c,#d97706)}.mm-10{background:linear-gradient(135deg,#06b6d4,#3b82f6)}.mm-11{background:linear-gradient(135deg,#be185d,#7c3aed)}.mm-12{background:linear-gradient(135deg,#1e3a5f,#3b82f6)}.mm-13{background:linear-gradient(135deg,#1f2937,#374151)}.mm-14{background:linear-gradient(135deg,#2563eb,#0891b2)}.mm-15{background:linear-gradient(135deg,#92400e,#d97706)}.mm-16{background:linear-gradient(135deg,#dc2626,#b45309)}.mm-17{background:linear-gradient(135deg,#4338ca,#06b6d4)}.mm-18{background:linear-gradient(135deg,#7c3aed,#dc2626)}.mm-19{background:linear-gradient(135deg,#166534,#4d7c0f)}.mm-20{background:linear-gradient(135deg,#4c1d95,#0f172a)}
-.app{display:grid;grid-template-columns:360px 1fr;max-width:1200px;margin:0 auto;padding:24px;position:relative;z-index:1;align-items:start}
+.app{display:grid;grid-template-columns:360px 1fr;width:100%;max-width:100%;margin:0;padding:24px;position:relative;z-index:1;align-items:start}
 .sidebar{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;position:sticky;top:20px;max-height:calc(100vh - 40px);overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent}
 .sidebar-search{padding:10px 12px;background:var(--surface2);border-bottom:1px solid var(--border)}
 .search-wrap{position:relative}
@@ -509,9 +509,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 ══════════════════════════════════════ */
 @media(min-width:1441px) and (max-width:1920px){
   html{font-size:16px}
-  .app{grid-template-columns:380px 1fr;max-width:1400px;padding:28px}
-  .header-inner{max-width:1400px}
-  .wb-inner{max-width:1400px}
+  .app{grid-template-columns:420px 1fr;padding:32px}
+  .header{padding:36px 40px 30px}
   .brand-text h1{font-size:1.65rem}
   .sidebar{top:24px;max-height:calc(100vh - 48px)}
   .panel-body{max-height:260px}
@@ -528,11 +527,10 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 @media(min-width:1921px){
   html{font-size:19px}
   body{font-size:19px}
-  .app{grid-template-columns:460px 1fr;max-width:1800px;padding:36px}
-  .header{padding:44px 40px 36px}
-  .header-inner{max-width:1800px}
-  .wb-inner{max-width:1800px}
-  #welcomeBar{padding:14px 40px}
+  .app{grid-template-columns:500px 1fr;padding:44px}
+  .header{padding:48px 48px 40px}
+  #welcomeBar{padding:16px 48px}
+  .main-area{gap:22px}
 
   /* Brand */
   .brand-icon{width:64px;height:64px;font-size:1.8rem;border-radius:18px}
@@ -1446,7 +1444,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 
 <!-- ═══════════════ TAB: GUIDE (מדריך לירון) ═══════════════ -->
 <div id="mainTab-guide" class="main-tab-panel" style="display:none;">
-<div style="display:grid;grid-template-columns:240px 1fr;max-width:1200px;margin:0 auto;padding:24px;gap:0;align-items:start;">
+<div style="display:grid;grid-template-columns:240px 1fr;width:100%;max-width:100%;margin:0;padding:24px;gap:0;align-items:start;">
 
   <!-- sticky TOC -->
   <div style="position:sticky;top:20px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:16px;max-height:calc(100vh - 80px);overflow-y:auto;">
@@ -1665,7 +1663,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 
 <!-- ═══════════════ TAB: DICTIONARY (מילון מונחים) ═══════════════ -->
 <div id="mainTab-dict" class="main-tab-panel" style="display:none;">
-<div style="display:grid;grid-template-columns:220px 1fr;max-width:1200px;margin:0 auto;padding:24px;gap:0;align-items:start;">
+<div style="display:grid;grid-template-columns:220px 1fr;width:100%;max-width:100%;margin:0;padding:24px;gap:0;align-items:start;">
 
   <!-- sticky TOC -->
   <div style="position:sticky;top:20px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:16px;max-height:calc(100vh - 80px);overflow-y:auto;">
