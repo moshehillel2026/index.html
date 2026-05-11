@@ -255,7 +255,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
   letter-spacing:.5px;
   text-transform:uppercase;
 }
-#globalTooltip .tt-body{color:var(--muted);font-size:.72rem;line-height:1.55}
+#globalTooltip .tt-body{color:#eeeef8;font-size:.72rem;line-height:1.55}
 /* question-mark badge */
 .tip-badge{
   display:inline-flex;align-items:center;justify-content:center;
@@ -308,6 +308,16 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
    RESPONSIVE SYSTEM — Mobile · Tablet · Desktop · TV
    ═══════════════════════════════════════════════════════ */
 
+/* ── Global overflow lock (prevents horizontal scroll on ALL screens) ── */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+*, *::before, *::after {
+  box-sizing: border-box !important;
+  min-width: 0; /* critical: prevents flex/grid children from overflowing */
+}
+
 /* ── Base fluid rules (all screens) ── */
 .header{overflow:visible!important}
 .brand-text h1{font-size:clamp(.85rem,2.2vw,1.5rem);white-space:normal;line-height:1.2}
@@ -329,6 +339,17 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
   html{font-size:14px}
   body{font-size:14px}
 
+  /* ── Hard overflow lock ── */
+  html, body { overflow-x:hidden !important; width:100% !important; max-width:100vw !important; }
+  .app, .header, .header-inner, #welcomeBar, .wb-inner,
+  .sidebar, .main-area, .output-card, .selected-display,
+  .structure-builder, .moods-bar, .login-card {
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+  }
+
   /* Login */
   .login-card{padding:26px 16px 22px;border-radius:16px}
   .login-logo-icon{width:48px;height:48px;font-size:1.5rem;border-radius:14px}
@@ -339,23 +360,24 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
   .login-wa-btn{font-size:.8rem;padding:11px}
 
   /* Welcome bar */
-  .wb-inner{flex-direction:column;align-items:flex-start;gap:5px}
+  .wb-inner{flex-direction:column;align-items:flex-start;gap:5px;padding:0}
   .wb-msg{font-size:.75rem}
   .wb-user{max-width:100px}
   .logout-btn{font-size:.7rem;padding:4px 9px}
 
   /* Header */
-  .header{padding:14px 12px 12px}
+  .header{padding:14px 12px 12px;overflow:hidden!important}
   .header-top{gap:8px;flex-wrap:wrap}
-  .brand{gap:10px}
+  .brand{gap:10px;min-width:0}
   .brand-icon{width:34px;height:34px;font-size:1rem;border-radius:9px;flex-shrink:0}
-  .brand-text h1{font-size:.82rem}
+  .brand-text{min-width:0;overflow:hidden}
+  .brand-text h1{font-size:.82rem;overflow:hidden;text-overflow:ellipsis}
   .brand-text p{display:none}
   .header-badges{display:none}
   .quick-guide-bar{display:none}
 
   /* Moods */
-  .moods-bar{padding:8px 10px}
+  .moods-bar{padding:8px 10px;overflow:hidden}
   .moods-bar-title{font-size:.68rem;margin-bottom:8px}
   .mood-magic-btn{font-size:.63rem;padding:5px 7px;border-radius:7px}
 
@@ -363,39 +385,41 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
   .main-tab-btn{font-size:.72rem!important;padding:8px 10px!important}
 
   /* App layout */
-  .app{grid-template-columns:1fr!important;padding:8px}
-  .sidebar{position:static;max-height:none;margin-bottom:12px;border-radius:10px}
-  .main-area{padding-right:0;gap:12px}
+  .app{display:block!important;width:100%!important;max-width:100%!important;padding:8px!important}
+  .sidebar{position:static;max-height:none;margin-bottom:12px;border-radius:10px;width:100%!important}
+  .main-area{padding-right:0;gap:12px;width:100%!important}
 
   /* Sidebar panels */
   .panel-header{padding:10px 12px}
   .panel-title{font-size:.78rem}
-  .panel-body{padding:8px 10px;gap:4px}
+  .panel-body{padding:8px 10px;gap:4px;max-height:200px;overflow-y:auto}
   .tag-chip{font-size:.65rem;padding:3px 8px}
   .sidebar-search-input{font-size:.75rem;padding:5px 30px 5px 9px}
 
   /* Output card */
+  .output-card{width:100%!important;min-width:0!important}
   .output-tabs{overflow-x:auto;scrollbar-width:none}
   .output-tab{font-size:.67rem;padding:9px 6px;white-space:nowrap;flex-shrink:0}
   .output-panel{padding:12px 10px}
   .field-label{font-size:.65rem}
-  .style-output{font-size:.76rem;padding:11px}
-  .lyrics-editor{font-size:.82rem;padding:11px 12px;min-height:130px}
-  .title-input{font-size:.82rem;padding:9px 11px}
-  .prompt-preview{font-size:.73rem;padding:11px 12px}
+  .style-output{font-size:.76rem;padding:11px;word-break:break-word}
+  .lyrics-editor{font-size:.82rem;padding:11px 12px;min-height:130px;width:100%!important}
+  .title-input{font-size:.82rem;padding:9px 11px;width:100%!important}
+  .prompt-preview{font-size:.73rem;padding:11px 12px;width:100%!important}
 
   /* Action buttons */
-  .action-row{display:grid;grid-template-columns:1fr 1fr;gap:5px}
-  .action-row .btn{justify-content:center;font-size:.74rem;padding:8px 10px}
-  .btn{font-size:.74rem;padding:8px 12px}
+  .action-row{display:grid;grid-template-columns:1fr 1fr;gap:5px;width:100%!important}
+  .action-row .btn{justify-content:center;font-size:.74rem;padding:8px 10px;min-width:0!important}
+  .btn{font-size:.74rem;padding:8px 12px;min-width:0!important}
 
   /* Structure builder */
   .sb-header{padding:10px 12px}
   .sb-title{font-size:.78rem}
   .sb-body{padding:10px 12px}
   .sb-section-btn{font-size:.63rem;padding:4px 8px}
-  .struct-tags-bar{gap:4px}
+  .struct-tags-bar{gap:4px;flex-wrap:wrap}
   .struct-insert-btn{font-size:.63rem;padding:2px 7px}
+  .song-structure{flex-wrap:wrap}
 
   /* Counter */
   .counter-row{gap:8px;flex-wrap:wrap}
@@ -405,7 +429,17 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
   .toast{font-size:.76rem;padding:9px 16px;bottom:16px;max-width:88vw;text-align:center;white-space:normal}
 
   /* Tabs guide/dict */
-  #mainTab-guide>div,#mainTab-dict>div{grid-template-columns:1fr!important}
+  #mainTab-guide>div,#mainTab-dict>div{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    padding:12px!important;
+  }
+  #mainTab-guide>div>div,#mainTab-dict>div>div{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
   #mainTab-guide>div>div:first-child,#mainTab-dict>div>div:first-child{position:static;max-height:none;margin-bottom:12px}
   #mainTab-guide>div>div:last-child,#mainTab-dict>div>div:last-child{padding-right:0!important}
 }
@@ -417,6 +451,12 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 @media(min-width:481px) and (max-width:767px){
   html{font-size:15px}
 
+  /* ── Overflow lock ── */
+  html, body { overflow-x:hidden !important; width:100% !important; }
+  .app, .header, .header-inner, .sidebar, .main-area {
+    width:100% !important; max-width:100% !important; min-width:0 !important;
+  }
+
   /* Login */
   .login-card{padding:30px 22px 26px;border-radius:20px}
   .login-tab{font-size:.74rem;padding:8px 8px}
@@ -425,7 +465,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
   .wb-inner{flex-direction:column;align-items:flex-start;gap:5px}
 
   /* Header */
-  .header{padding:16px 14px 14px}
+  .header{padding:16px 14px 14px;overflow:hidden!important}
   .brand-icon{width:36px;height:36px;font-size:1.05rem;border-radius:10px;flex-shrink:0}
   .brand-text h1{font-size:.88rem}
   .brand-text p{display:none}
@@ -437,17 +477,20 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
   .mood-magic-btn{font-size:.66rem;padding:5px 8px}
 
   /* App layout */
-  .app{grid-template-columns:1fr!important;padding:10px}
-  .sidebar{position:static;max-height:none;margin-bottom:14px}
-  .main-area{padding-right:0}
+  .app{display:block!important;width:100%!important;padding:10px!important}
+  .sidebar{position:static;max-height:none;margin-bottom:14px;width:100%!important}
+  .main-area{padding-right:0;width:100%!important}
 
   /* Output */
   .output-tab{font-size:.7rem;padding:9px 8px}
   .action-row{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-  .action-row .btn{justify-content:center}
+  .action-row .btn{justify-content:center;min-width:0!important}
 
   /* Tabs guide/dict */
-  #mainTab-guide>div,#mainTab-dict>div{grid-template-columns:1fr!important}
+  #mainTab-guide>div,#mainTab-dict>div{
+    display:block!important;width:100%!important;padding:14px!important;
+  }
+  #mainTab-guide>div>div,#mainTab-dict>div>div{width:100%!important;min-width:0!important}
   #mainTab-guide>div>div:first-child,#mainTab-dict>div>div:first-child{position:static;max-height:none;margin-bottom:14px}
   #mainTab-guide>div>div:last-child,#mainTab-dict>div>div:last-child{padding-right:0!important}
 }
@@ -611,7 +654,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .gemini-grid{display:flex;flex-direction:column;gap:7px}
 .gemini-entry{display:flex;align-items:flex-start;gap:10px;background:rgba(34,211,238,.04);border:1px solid rgba(34,211,238,.1);border-radius:8px;padding:9px 13px}
 .gemini-tag{font-family:var(--mono);font-size:.68rem;padding:2px 8px;border-radius:5px;background:rgba(34,211,238,.12);border:1px solid rgba(34,211,238,.25);color:var(--cyan);white-space:nowrap;flex-shrink:0;align-self:flex-start;margin-top:2px}
-.gemini-heb{color:var(--muted);font-size:.78rem;font-weight:700;flex-shrink:0;min-width:110px;padding-top:1px}
+.gemini-heb{color:var(--muted);font-size:.78rem;font-weight:700;flex-shrink:0;min-width:min(110px,25vw);padding-top:1px}
 .gemini-def{font-size:.8rem;color:var(--dim);line-height:1.5}
 </style>
 </head>
